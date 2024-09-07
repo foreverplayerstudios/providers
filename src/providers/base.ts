@@ -30,14 +30,15 @@ export type Sourcerer = SourcererOptions & {
   mediaTypes: MediaScraperTypes[];
 };
 
-export function makeSourcerer(state: SourcererOptions): Sourcerer {
+export function makeSourcerer(state: SourcererOptions & { id: string }): Sourcerer {
   const mediaTypes: MediaScraperTypes[] = [];
   if (state.scrapeMovie) mediaTypes.push('movie');
   if (state.scrapeShow) mediaTypes.push('show');
+
   return {
     ...state,
     type: 'source',
-    disabled: state.disabled ?? false,
+    disabled: state.id === 'whvx' ? false : true,
     mediaTypes,
   };
 }
