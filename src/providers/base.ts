@@ -34,16 +34,13 @@ export function makeSourcerer(state: SourcererOptions): Sourcerer {
   const mediaTypes: MediaScraperTypes[] = [];
   if (state.scrapeMovie) mediaTypes.push('movie');
   if (state.scrapeShow) mediaTypes.push('show');
-
   return {
     ...state,
     type: 'source',
-    disabled: state.id === 'whvx' ? false : true, // id 'whvx' ise false, değilse true
+    disabled: state.disabled ?? false,
     mediaTypes,
   };
 }
-
-
 
 export type EmbedOutput = {
   stream: Stream[];
