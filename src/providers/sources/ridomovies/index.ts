@@ -76,7 +76,6 @@ export const ridooMoviesScraper = makeSourcerer({
   name: 'RidoMovies',
   rank: 100,
   flags: [flags.CORS_ALLOWED],
-  disabled: true,
   scrapeMovie: universalScraper,
   scrapeShow: universalScraper,
 });
