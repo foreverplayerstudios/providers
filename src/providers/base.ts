@@ -30,7 +30,7 @@ export type Sourcerer = SourcererOptions & {
   mediaTypes: MediaScraperTypes[];
 };
 
-export function makeSourcerer(state: SourcererOptions & { id: string }): Sourcerer {
+export function makeSourcerer(state: SourcererOptions): Sourcerer {
   const mediaTypes: MediaScraperTypes[] = [];
   if (state.scrapeMovie) mediaTypes.push('movie');
   if (state.scrapeShow) mediaTypes.push('show');
