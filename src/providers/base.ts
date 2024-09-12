@@ -35,10 +35,12 @@ export function makeSourcerer(state: SourcererOptions): Sourcerer {
   if (state.scrapeMovie) mediaTypes.push('movie');
   if (state.scrapeShow) mediaTypes.push('show');
 
+  const acceptedIds = ['whvx', 'ee3', 'soapertv'];
+
   return {
     ...state,
     type: 'source',
-    disabled: state.id === 'whvx' ? false : true,
+    disabled: acceptedIds.includes(state.id) ? false : true,
     mediaTypes,
   };
 }
